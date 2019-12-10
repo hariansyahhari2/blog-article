@@ -1,0 +1,2 @@
+class ChangeStatusFromContact < ApplicationRecord
+end
