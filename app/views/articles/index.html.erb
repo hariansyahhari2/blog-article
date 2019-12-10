@@ -57,6 +57,18 @@
           <p>____________________________________</p>
       <% end %>
     </div>
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <h5>
+        <% if !current_user %>
+        <%= link_to 'Log-in', new_session_path %>
+        <% else %>
+        Hello <%= current_user.username %>
+        <%= link_to 'Log-Out', session_path(current_user.id), method: "DELETE" %>
+        <% end %>
+        </h5>
+      </div>
   </div>
   
   <%= link_to 'Create a new article', new_article_path%>

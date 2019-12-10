@@ -1,6 +1,6 @@
 <br/><br/>
 <h3>Comments:</h3>
-<% @article.comment.each do |c| %>
+<% @article.comments.each do |c| %>
     <strong><%= c.username %>:</strong>
     <br/>
     <%= c.content %>

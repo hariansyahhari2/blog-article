@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  resources :articles
-  resources :comments
+  resources :sessions
+  get "sign_up" => "users#new", :as => "sign_up"
+  resources :users
+  resources :articles do
+    resources :comments
+  end
   root 'home#index'
   get 'home/index'
   get 'contacts/index'
   post '/contacts', to: 'contacts#create', as: :contacts
+  
 
   #get "articles", to:"articles#index", as: :articles
   
