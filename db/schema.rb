@@ -10,17 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_031532) do
+ActiveRecord::Schema.define(version: 2019_12_12_043613) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "content"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
-  end
-
-  create_table "change_status_from_contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -37,12 +34,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_031532) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "CreateAddColumnToContacts"
-  end
-
-  create_table "remove_integer_from_contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -52,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_031532) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_salt"
+    t.string "activation_token"
+    t.string "activation_status"
   end
 
 end

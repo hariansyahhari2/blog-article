@@ -5,11 +5,18 @@
 
         <h3><%= @article.title %></h3>
         <p><%= @article.content %></p>
-        <span> <%= @article.status %></span>
+        <span>status: <%= @article.status %></span>
         <p>
             <%= link_to 'index', articles_path %>
         </p>
-        <%= render 'comments/comment' %>
+         
+         <% @article.comments.each do |c| %>
+              <strong><%= c.username %>:</strong>
+              <br/>
+              <%= c.content %>
+              <br/>
+              <br/>
+          <% end %>
     </div>
     <div class="col-sm-4">
     </div>

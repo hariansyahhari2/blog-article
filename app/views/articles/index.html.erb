@@ -6,6 +6,20 @@
     <h2>Articles</h2>
 </div>
 
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Articles</h1>
+          <span class="subheading">A Blog Theme by Start Bootstrap</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 <!--
 <div id="myCarousel" class="carousel slide">
 
@@ -44,18 +58,9 @@
 <div class="container" style="margin-top:30px">
 <h3>Article posted:</h4>
   <div class="row">
-    <div class="col-sm-4">
-      <% @articles.each do |article| %>
-          <h4><%=article.title %></h4>
-          <h5 style ="margin-left: 15px"><%= article.content.truncate(30) %></h5>
-          <h6 style ="margin-left: 15px">status : <%= article.status %></h6>
-          <span style ="margin-left: 15px"><%= link_to 'read more',  article_path(article.id) %></span>
-          <span> | </span>
-          <span><%= link_to 'edit', edit_article_path(article.id)%></span>
-          <span> | </span>
-          <span> <%= link_to 'delete', article_path(article.id), method:"DELETE", data:{confirm:'Delete this data?'} %> </span>
-          <p>____________________________________</p>
-      <% end %>
+    <div class="col-sm-4" id="article_list">
+      <%= render @articles %>
+      <%= paginate @articles %>
     </div>
     <div class="col-sm-4">
     </div>
@@ -68,6 +73,10 @@
         <%= link_to 'Log-Out', session_path(current_user.id), method: "DELETE" %>
         <% end %>
         </h5>
+        <form id="get_search">
+          <input class="form-control-sm" type="search" placeholder="Type here to search" aria-label="Search" id="search" name="search">
+          <input class="btn btn-sm btn-outline-info" type="button" onclick="submitFrmAjax();" value="Search">
+        </form>
       </div>
   </div>
   

@@ -1,0 +1,9 @@
+<h4><%=article.title %></h4>
+<h5 style ="margin-left: 15px"><%= article.content.truncate(30) %></h5>
+<h6 style ="margin-left: 15px">status : <%= article.status %></h6>
+<span style ="margin-left: 15px"><%= link_to 'read more',  article_path(article.id) %></span>
+<span> | </span>
+<span><%= link_to 'edit', edit_article_path(article.id)%></span>
+<span> | </span>
+<span> <%= link_to 'delete', article_path(article.id), method:"DELETE", data:{confirm:'Delete this data?'} %> </span>
+<p>____________________________________</p>

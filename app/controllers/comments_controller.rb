@@ -11,9 +11,12 @@ class CommentsController < ApplicationController
       @comment = @article.comments.create(params_comments)
 
       if @comment.save
-        redirect_to articles_path(@article)
+        #format.js { @article }
+        format.js{article=Article.find(params[:article_id])}
+        redirect_to article_path(@article.id)
       else
         format.js{article=Article.find(params[:article_id])}
+        render article_path(@article)
       end
     end
   end
